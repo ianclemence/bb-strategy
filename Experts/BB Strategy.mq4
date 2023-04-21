@@ -8,7 +8,7 @@
 #property version   "1.00"
 #property strict
 #property show_inputs
-#include  <CustomFunctions02.mqh>
+#include  <CustomFunctions.mqh>
 
 int magicNB = 55555;
 input int bbPeriod = 30;
