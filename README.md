@@ -2,15 +2,9 @@
 
 This is a GitHub repository for the `BB Strategy` trading algorithm created by `Ian Clemence`. The strategy uses Bollinger Bands and RSI indicators to generate buy and sell signals.
 
-## Files
+## Strategy Parameters
 
-The repository contains one main file:
-
-- `BB Strategy.mq4`: This is the main algorithm file that contains the code for the trading strategy.
-
-## Inputs
-
-The algorithm uses the following inputs:
+The strategy has the following parameters that can be customized:
 
 - `bbPeriod` (default: `30`): The number of periods used to calculate the Bollinger Bands.
 - `bandStdEntry` (default: `2`): The standard deviation used to calculate the entry Bollinger Bands.
@@ -35,11 +29,29 @@ The algorithm uses the following initialization and deinitialization functions:
 - `OnInit()`: This function is called when the algorithm is initialized. It returns `INIT_SUCCEEDED` if initialization is successful.
 - `OnDeinit(reason)`: This function is called when the algorithm is deinitialized. It does not return anything.
 
-## Tick Function
+## Trading Rules
 
-The algorithm uses the following tick function:
+The strategy enters a long position if the following conditions are
+met: - the current Ask price is below the lower Bollinger Band; - the
+previous candle's open price is above the lower Bollinger Band; - the
+current William's Percent Range value is lower than `rsiLowerLevel`;
 
-- `OnTick()`: This function is called on every tick. It calculates the Bollinger Bands and RSI indicator, and generates buy or sell signals based on the conditions specified in the code. If there are no open orders, it tries to enter a new position. If there is an open position, it updates the take profit and stop loss orders if necessary.
+The strategy enters a short position if the following conditions are
+met: - the current Bid price is above the upper Bollinger Band; - the
+previous candle's open price is below the upper Bollinger Band; - the
+current William's Percent Range value is higher than `rsiUpperLevel`;
+
+The strategy places a buy limit order at the lower Bollinger Band with
+the stop loss at the lower Bollinger Band minus `bandStdLossExit`
+standard deviations and the take profit at the upper Bollinger Band plus
+`bandStdProfitExit` standard deviations. The lot size is determined
+based on the `riskPerTrade` parameter.
+
+The strategy places a sell limit order at the upper Bollinger Band with
+the stop loss at the upper Bollinger Band plus `bandStdLossExit`
+standard deviations and the take profit at the lower Bollinger Band
+minus `bandStdProfitExit` standard deviations. The lot size is
+determined based on the `riskPerTrade` parameter.
 
 ## Disclaimer
 
