@@ -1,4 +1,4 @@
-# EA Strategies
+# BB Strategy
 
 This is a GitHub repository for the `BB Strategy` trading algorithm created by `Ian Clemence`. The strategy uses Bollinger Bands and RSI indicators to generate buy and sell signals.
 
