@@ -15,13 +15,6 @@ The strategy has the following parameters that can be customized:
 - `rsiLowerLevel` (default: `35`): The oversold level of the RSI indicator.
 - `rsiUpperLevel` (default: `65`): The overbought level of the RSI indicator.
 
-## Initialization and Deinitialization Functions
-
-The algorithm uses the following initialization and deinitialization functions:
-
-- `OnInit()`: This function is called when the algorithm is initialized. It returns `INIT_SUCCEEDED` if initialization is successful.
-- `OnDeinit(reason)`: This function is called when the algorithm is deinitialized. It does not return anything.
-
 ## Trading Rules
 
 The strategy enters a long position if the following conditions are
