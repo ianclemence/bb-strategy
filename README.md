@@ -15,13 +15,6 @@ The strategy has the following parameters that can be customized:
 - `rsiLowerLevel` (default: `35`): The oversold level of the RSI indicator.
 - `rsiUpperLevel` (default: `65`): The overbought level of the RSI indicator.
 
-## Functions
-
-The following custom functions are used in the algorithm:
-
-- `CheckIfOpenOrdersByMagicNB(magicNB)`: Checks if there are any open orders with the specified `magicNB`.
-- `OptimalLotSize(riskPerTrade,entryPrice,stopLossPrice)`: Calculates the optimal lot size for a trade based on the `riskPerTrade`, `entryPrice`, and `stopLossPrice`.
-
 ## Initialization and Deinitialization Functions
 
 The algorithm uses the following initialization and deinitialization functions:
